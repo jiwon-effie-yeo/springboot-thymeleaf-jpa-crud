@@ -5,10 +5,7 @@ import boot.jpa.crud.dto.HeroSaveRequestDto;
 import boot.jpa.crud.dto.HeroUpdateRequestDto;
 import boot.jpa.crud.service.HeroService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
@@ -30,5 +27,10 @@ public class WebRestController {
     @PutMapping("/update")
     public Long HeroUpdateRequest(@RequestBody HeroUpdateRequestDto dto){
         return heroService.HeroUpdateRequest(dto);
+    }
+    @DeleteMapping("/delete")
+    public Long HeroDeleteByIdRequest(@RequestBody Long id){
+        heroService.HeroDeleteByIdRequest(id);
+        return id;
     }
 }

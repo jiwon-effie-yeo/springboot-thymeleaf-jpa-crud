@@ -16,6 +16,7 @@
             <th>Note</th>
             <th>Modified Date</th>
             <th>Modify</th>
+            <th>Delete</th>
         </tr>
     </thead>
 
@@ -25,15 +26,18 @@
             <td th:text="*{age}"></td>
             <td th:text="*{memo}"></td>
             <td th:text="*{modifiedDate}"></td>
-
             <!--update modal trigger-->
             <td>
                 <a href="#updateModal" class="modal-trigger" th:text="modify"
                     th:onclick="|javascript:findById(*{id})|">
-
                 </a>
             </td>
-        </tr>
+            <td>
+                <a href="#!" th:text="delete"
+                    th:onclick="|javascript:deleteById(*{id})|">
+                </a>
+            </td>
+            </tr>
     </tbody>
 </table>
 

@@ -65,6 +65,19 @@ index = {
         }).fail(function () {
             alert('Please try again');
         });
+    },
+    deleteById : function (id) {
+        $.ajax({
+            url: '/delete',
+            type: 'delete',
+            data: JSON.stringify(id),
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8'
+        }).done(function () {
+            location.reload();
+        }).fail(function () {
+            alert("please try again");
+        })
     }
 };
 
@@ -78,4 +91,8 @@ function findById(id) {
 
 function update() {
     index.update();
+}
+
+function deleteById(id) {
+    index.deleteById(id);
 }
