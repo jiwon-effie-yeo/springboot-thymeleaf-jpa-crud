@@ -25,14 +25,14 @@ public class Hero extends BaseTimeEntity {
     private int age;
 
     @Column(columnDefinition = "TEXT")
-    private String note;
+    private String memo;
 
     @Builder
-    public Hero(Long id, String name, int age, String note) {
+    public Hero(Long id, String name, int age, String memo) {
         this.id = id;
         this.name = name;
         this.age = age;
-        this.note = note;
+        this.memo = memo;
     }
 }
 
