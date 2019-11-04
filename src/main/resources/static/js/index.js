@@ -28,9 +28,54 @@ index = {
         }).fail(function () {
             alert('Please try again');
         });
+    },
+    findById : function (id) {
+        $.ajax({
+            url:'/find',
+            type:'post',
+            data: JSON.stringify(id),
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8'
+        }).done(function (hero) {
+            $('#updateModal').data('id', id);
+            $('#updateName').val(hero.name);
+            $('#updateAge').val(hero.age);
+            $('#updateMemo').val(hero.memo);
+        }).fail(function () {
+            alert('Please try again');
+        })
+    },
+    update : function (){
+        var hero = {
+            id: $('#updateModal').data('id'),
+            name : $('#updateName').val(),
+            age : $('#updateAge').val(),
+            memo : $('#updateMemo').val()
+        };
+
+        $.ajax({
+            url: '/update',
+            type: 'put',
+            data: JSON
+                .stringify(hero),
+            dataYpe:'json',
+            contentType: 'application/json; charset=utf-8'
+        }).done(function () {
+            location.reload();
+        }).fail(function () {
+            alert('Please try again');
+        });
     }
 };
 
 function save() {
     index.save();
+}
+
+function findById(id) {
+    index.findById(id);
+}
+
+function update() {
+    index.update();
 }

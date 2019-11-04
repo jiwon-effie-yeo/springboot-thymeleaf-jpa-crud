@@ -11,6 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor(access =  AccessLevel.PROTECTED)
 public class HeroSaveRequestDto {
 
+
     private  String name;
     private int age;
     private  String memo;

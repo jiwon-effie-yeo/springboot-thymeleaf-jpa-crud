@@ -15,6 +15,7 @@
             <th>Age</th>
             <th>Note</th>
             <th>Modified Date</th>
+            <th>Modify</th>
         </tr>
     </thead>
 
@@ -24,6 +25,14 @@
             <td th:text="*{age}"></td>
             <td th:text="*{memo}"></td>
             <td th:text="*{modifiedDate}"></td>
+
+            <!--update modal trigger-->
+            <td>
+                <a href="#updateModal" class="modal-trigger" th:text="modify"
+                    th:onclick="|javascript:findById(*{id})|">
+
+                </a>
+            </td>
         </tr>
     </tbody>
 </table>
@@ -74,6 +83,52 @@
            th:onclick="|javascript:save()|">Save</a>
     </div>
 </div>
+
+<!-- UPdate Modal Structure -->
+<div id="updateModal" class="modal modal-fixed-footer">
+    <div class="modal-header">
+        <h4>Create Form</h4>
+    </div>
+    <div class="row input-field">
+        <div class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input placeholder type="text" id="updateName" class="autocomplete">
+                    <label for="updateName">Name</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">date_range</i>
+                    <input placeholder type="text" id="updateAge" class="autocomplete">
+                    <label for="updateAge">Age</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">edit</i>
+                    <input placeholder type="text" id="updateMemo" class="autocomplete">
+                    <label for="updateMemo">Memo</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat"
+           th:onclick="|javascript:update()|">Update</a>
+    </div>
+</div>
+
+
 
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src="/js/materialize.js"></script>
